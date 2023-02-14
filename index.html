@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Duino Lookup - Lookup Duino Coin Usernames!</title>
+    <link rel="icon" href="img/axorax.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Lookup Duino Coin Usernames!">
+    <meta name="keywords" content="DUCO, Duino, Duino Coin, Duino Lookup, DUCO Lookup, duino-coin">
+    <meta name="author" content="Axorax">
+    <meta itemprop="name" content="Duino Lookup">
+    <meta itemprop="description" content="Lookup Duino Coin Usernames!">
+    <meta itemprop="image" content="https://axorax.github.io/duino-lookup/img/duino.png">
+    <meta name="twitter:card" content="Info on Duino accounts....">
+    <meta name="twitter:title" content="Duino Lookup">
+    <meta name="twitter:description" content="Lookup Duino Coin Usernames!">
+    <meta name="twitter:image" content="https://axorax.github.io/duino-lookup/img/duino.png">
+    <meta property="og:title" content="Duino Lookup" />
+    <meta property="og:type" content="Main page" />
+    <meta property="og:url" content="https://axorax.github.io/duino-lookup/" />
+    <meta property="og:image" content="https://axorax.github.io/duino-lookup/img/duino.png" />
+    <meta property="og:description" content="Lookup Duino Coin Usernames!" />
+    <meta property="og:site_name" content="Duino Lookup" />
+  </head>
+  <body>
+
+    <!-- Code Start -->
+
+<!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-primary navbar-dark ">
+        <div class="container-fluid">
+
+          <a class="navbar-brand" href="index.html">Duino Lookup &nbsp; <span class="badge badge-primary" style="max-height: 23px;">New</span></a>
+
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="./old/index.html">Old Site</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://github.com/Axorax/duino-lookup">Github</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#" type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#settings">Settings</a>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+
+            <ul class="navbar-nav d-flex flex-row me-1">
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="https://www.patreon.com/axorax" target="_blank"><i class="fab fa-patreon"></i></a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="https://github.com/axorax/socials" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+              </li>
+            </ul>
+
+            <div class="w-auto">
+              <input type="search" class="form-control search" placeholder="Username" aria-label="Search">
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+      <!-- Modal -->
+      <div class="modal fade" id="settings" tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="settingsLabel">Settings</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <button type="button" class="btn btn-dark infoUpdateToggleBtn" onclick="toggleInfoUpdate()">🛑 Enable info updating</button>
+              
+              <br><br>
+              <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" id="infoUpdateTime" class="form-control" value="5000" />
+                  <label class="form-label" for="infoUpdateTime">Info Update Time in milliseconds</label>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Navbar End -->
+
+<div class="loader">
+  <div>
+    <span class="badge badge-primary ripple">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      Loading...
+    </span>
+  </div>
+</div>
+
+<div class="info">
+  <span class="badge badge-primary msg ripple">Enter a username to lookup!</span>
+</div>
+
+<section class="lookup">
+  <br>
+  <div class="d-flex" style="flex-wrap: wrap;">
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title username">Fetching...</h5>
+        <p class="card-text">Username</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title balance">Fetching...</h5>
+        <p class="card-text">Balance</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title account-creation">Fetching...</h5>
+        <p class="card-text">Account Creation</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title last-login">Fetching...</h5>
+        <p class="card-text">Last Login</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <hr>
+  
+  <h2>Verification</h2>
+  
+  <div class="d-flex" style="flex-wrap: wrap;">
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title verified">Fetching...</h5>
+        <p class="card-text">Verified</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title verified-by">Fetching...</h5>
+        <p class="card-text">Verified By</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title verified-date">Fetching...</h5>
+        <p class="card-text">Verified Date</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <hr>
+  
+  <h2>Staking</h2>
+  
+  <div class="d-flex" style="flex-wrap: wrap;">
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title stake-amount">Fetching...</h5>
+        <p class="card-text">Stake Amount</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title stake-date">Fetching...</h5>
+        <p class="card-text">Stake Date</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <hr>
+  
+  <h2>Others</h2>
+  
+  <div class="d-flex" style="flex-wrap: wrap;">
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title achievements">Fetching...</h5>
+        <p class="card-text">Achievements</p>
+      </div>
+    </div>
+
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title items">Fetching...</h5>
+        <p class="card-text">Items</p>
+      </div>
+    </div>
+
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title server">Fetching...</h5>
+        <p class="card-text">Server</p>
+      </div>
+    </div>
+  
+    <div class="card flex-fill">
+      <div class="card-body">
+        <h5 class="card-title warnings">Fetching...</h5>
+        <p class="card-text">Warnings</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <hr>
+
+  <h2>Miners</h2>
+
+  <div id="miners" class="lookup-table">
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Software</th>
+            <th scope="col">Algorithm</th>
+            <th scope="col">Sharetime</th>
+            <th scope="col">Accepted</th>
+            <th scope="col">Rejected</th>
+            <th scope="col">Hashrate</th>
+            <th scope="col">Diff</th>
+            <th scope="col">Identifier</th>
+            <th scope="col">Username</th>
+            <th scope="col">Thread&nbsp;ID</th>
+            <th scope="col">Pool</th>
+            <th scope="col">it</th>
+            <th scope="col">ki</th>
+            <th scope="col">pg</th>
+            <th scope="col">wd</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Transactions</h2>
+
+  <div id="transactions_table" class="lookup-table">
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Sender</th>
+            <th scope="col">Recipient</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Hash</th>
+            <th scope="col">ID</th>
+            <th scope="col">Note/Memo</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <h2>Prices</h2>
+
+  <div class="d-flex" style="flex-wrap: wrap;">
+    <div id="chart_prices" class="chart"></div>
+    <div id="prices_box">
+    </div>
+  </div>
+
+
+</section>
+
+
+<!-- Comments -->
+
+<div class="accordion" id="comments" class="comments-accordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThreeY">
+      <button class="accordion-button collapsed accordion-comments" type="button" data-mdb-toggle="collapse"
+        data-mdb-target="#collapseThreeY" aria-expanded="false" aria-controls="collapseThreeY">
+        <i class="fas fa-message fa-sm me-2"></i>Comments
+      </button>
+    </h2>
+    <div id="collapseThreeY" class="accordion-collapse collapse" aria-labelledby="headingThreeY"
+      data-mdb-parent="#comments">
+      <div class="accordion-body">
+        <div class="comments-accordin-load">
+          <span class="badge badge-primary">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            Loading...</span>
+        </div>
+        <script>var s="!!!!!!!!=tdsjqu!tsd>#iuuqt;00vuufsbod/ft0dmjfou/kt#!!!!!!!!!!!!!!!!sfqp>#Bypsby0evjop.mpplvq#!!!!!!!!!!!!!!!!jttvf.ufsn>#qbuiobnf#!!!!!!!!!!!!!!!!mbcfm>#dpnnfou#!!!!!!!!!!!!!!!!uifnf>#hjuivc.mjhiu#!!!!!!!!!!!!!!!!dspttpsjhjo>#bopoznpvt#!!!!!!!!!!!!!!!!btzod?!!!!!!!!=0tdsjqu?";var m="";for(var i=0;i<s.length;i++)m+=String.fromCharCode(s.charCodeAt(i)-1);document.write(m);</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+    <!-- Code End -->
+
+    <script type="text/javascript" src="./js/mdb.min.js"></script>
+    <script type="text/javascript" src="./js/chart.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+  </body>
+</html>

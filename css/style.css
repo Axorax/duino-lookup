@@ -1,0 +1,106 @@
+.comments-accordin-load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem 0 1rem 0;
+}
+
+.comments-accordin-load .spinner-border, .info .spinner-border, .loader .spinner-border {
+    height: 18px;
+    width: 18px;
+    margin-right: .5rem;
+    user-select: none;
+}
+
+.comments-accordin-load .badge, .info .badge, .loader .badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    border: 1.3px solid currentColor;
+    font-size: .9rem;
+}
+
+.card {
+    text-align: center;
+    max-width: 100%;
+    min-width: 6.9rem;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    /* max-width: 11rem; */
+    word-wrap: break-word;
+}
+
+@media(max-width: 587px) {
+    .card {
+        text-align: left;
+    }
+}
+
+.lookup h2 {
+    margin: 1.5rem 1.2rem 0 1.2rem;
+    text-decoration: underline;
+    font-size: 1.3rem;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.info, .loader {
+    height: calc(100vh - 58.59px - 56.79px - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lookup {
+    display: none;
+}
+
+.loader {
+    display: none;
+}
+
+.info .msg {
+    user-select: none;
+}
+
+#comments {
+    margin-top: 2rem;
+}
+
+.chart {
+    width: 40rem;
+    max-width: calc(100% - 2.4rem);
+    margin: 0 1.2rem;
+}
+
+#prices_box {
+    padding: 2rem 1.5rem;
+}
+
+#prices_box li {
+    font-size: 14px;
+}
+
+table {
+    border: 1px solid #E0E0E0;
+}
+
+.lookup-table {
+    padding: 1rem 1.3rem;
+}
+
+.lookup-table .table-container {
+    padding: 0;
+    margin: 0;
+    overflow-x: scroll;
+    max-width: 100%;
+}
+
+.lookup-table .table-container .table {
+    margin: 0;
+    word-break: keep-all;
+}
+
