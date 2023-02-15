@@ -6,4 +6,8 @@ Lookup Duino Coin Usernames!
 
 ---
 
+![Duino Lookup Banner](./img/duino-lookup-banner.png)
+
+---
+
 [Support me on Patreon](https://www.patreon.com/axorax) - [Connect with me](https://github.com/axorax/socials)
